@@ -1,0 +1,39 @@
+.rmMenu {
+  background-color: #f0f0f0;
+  -moz-box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4);
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 14px;
+}
+
+.rmMenuItemList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rmMenuItem {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+  padding: 0 15px;
+}
+.rmMenuItem.rmMouseOver {
+  color: #fff;
+  background-color: #4d9cfb;
+}
+.rmMenuItem.rmSeparator {
+  height: 1px;
+  margin: 5px 0;
+  overflow: hidden;
+  background-color: #dadada;
+}
+.rmMenuItem.rmDisabled {
+  color: #ccc;
+}
