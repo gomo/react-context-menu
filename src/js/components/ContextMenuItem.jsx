@@ -36,8 +36,8 @@ export default class ContextMenuItem extends React.Component
         onMouseOver={e => this.onMouseOver(e)}
         onMouseOut={e => this.onMouseOut(e)}
         onClick={e => this.onClick(e)}
+        dangerouslySetInnerHTML={{__html: this.props.name == '-' ? null : this.props.name}}
       >
-        {this.props.name == '-' ? null : this.props.name}
       </li>
     );
   }
