@@ -5,6 +5,7 @@ var notifier = require('node-notifier');
 var compass = require('gulp-compass');
 var cleanCSS = require('gulp-clean-css');
 var rename = require('gulp-rename');
+var webpackStream = require('webpack-stream');
 
 
 gulp.task('build-sass', function() {
@@ -15,23 +16,11 @@ gulp.task('build-sass', function() {
       image: 'dist/img',
       import_path: ["src/sass"]
     }))
-    .on('error', function(error){
-      notifier.notify({
-        title: error.plugin,
-        message: error.message
-      });
-      this.emit('end');
-    })
+    .on('error', gutil.log)
     .pipe(gulp.dest('dist/css'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(cleanCSS())
-    .on('error', function(error){
-      notifier.notify({
-        title: error.plugin,
-        message: error.message
-      });
-      this.emit('end');
-    })
+    .on('error', gutil.log)
     .pipe(gulp.dest('dist/css'))
     ;
 });
@@ -42,19 +31,19 @@ gulp.task('watch-sass', function() {
 
 gulp.task('build-example', function() {
   var config = require('./example/webpack.config.js');
-  webpack(config, function(err, stats) {
-    //notifier
-    if (stats.compilation.errors.length) {
-      notifier.notify({
-        title: 'Webpack',
-        message: stats.compilation.errors[0].message
-      });
-    }
+  return gulp.src('example/app.jsx')
+    .pipe(webpackStream(config, webpack))
+    .on('error', gutil.log)
+    .pipe(gulp.dest('example'))
+});
 
-    //console log
-    gutil.log("[webpack]", stats.toString({}));
-  });
+gulp.task('build-src', function() {
+  var config = require('./src/webpack.config.js');
+  return gulp.src('src/index.es6')
+    .pipe(webpackStream(config, webpack))
+    .on('error', gutil.log)
+    .pipe(gulp.dest('./'))
 });
 
 
-gulp.task('default', ['build-sass', 'build-example'])
+gulp.task('default', ['watch-sass', 'build-src', 'build-example'])

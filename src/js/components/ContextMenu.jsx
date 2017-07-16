@@ -1,6 +1,7 @@
 import React from 'react';
 import assign from 'object-assign'
 import MenuItem from './ContextMenuItem'
+import PropTypes from 'prop-types'
 
 export default class ContextMenu extends React.Component
 {
@@ -94,13 +95,13 @@ export default class ContextMenu extends React.Component
 }
 
 ContextMenu.propTypes = {
-  items: React.PropTypes.arrayOf(React.PropTypes.shape({
-    name: React.PropTypes.func.isRequired,
-    onClick: React.PropTypes.func,
-    show: React.PropTypes.func,
-    enable: React.PropTypes.func
+  items: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
+    show: PropTypes.func,
+    enable: PropTypes.func
   })).isRequired,
-  zIndex: React.PropTypes.number
+  zIndex: PropTypes.number
 }
 
 ContextMenu.defaultProps = {

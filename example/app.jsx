@@ -1,6 +1,4 @@
-import {ContextMenu} from '../index.es6';
-
-
+import ContextMenu from '../index.js'
 window.onload = () => {
   var menu = ReactDOM.render(
     <ContextMenu
