@@ -54,4 +54,4 @@ gulp.task('build-src', function() {
 });
 
 
-gulp.task('default', ['watch-sass', 'build-src', 'build-example'])
+gulp.task('default', ['build-sass', 'watch-sass', 'build-src', 'build-example'])

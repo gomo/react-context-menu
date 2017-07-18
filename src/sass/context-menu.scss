@@ -1,34 +1,40 @@
 @import "compass";
 
-.rmMenu{
+.rmMenu {
   background-color: #f0f0f0;
+
   @include box-shadow(2px 2px 7px rgba(black, 0.4));
   @include border-radius(6px);
+
   padding: 5px 0;
   font-size: 14px;
 }
 
-.rmMenuItemList{
+.rmMenuItemList {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.rmMenuItem{
+.rmMenuItem {
   @include user-select(none);
+
   cursor: default;
   padding: 0 15px;
-  &.rmMouseOver{
+
+  &.rmMouseOver {
     color: #fff;
-    background-color: #4d9cfb
+    background-color: #4d9cfb;
   }
-  &.rmSeparator{
+
+  &.rmSeparator {
     height: 1px;
     margin: 5px 0;
     overflow: hidden;
     background-color: #dadada;
   }
-  &.rmDisabled{
+
+  &.rmDisabled {
     color: #ccc;
   }
 }
