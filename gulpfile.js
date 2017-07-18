@@ -7,6 +7,14 @@ var cleanCSS = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var webpackStream = require('webpack-stream');
 
+function logError(error){
+  notifier.notify({
+    title: error.plugin,
+    message: error.message
+  })
+
+  gutil.log(error)
+}
 
 gulp.task('build-sass', function() {
   return gulp.src(['src/sass/*.scss', 'src/sass/**/*.scss'])
@@ -16,11 +24,11 @@ gulp.task('build-sass', function() {
       image: 'dist/img',
       import_path: ["src/sass"]
     }))
-    .on('error', gutil.log)
+    .on('error', logError)
     .pipe(gulp.dest('dist/css'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(cleanCSS())
-    .on('error', gutil.log)
+    .on('error', logError)
     .pipe(gulp.dest('dist/css'))
     ;
 });
@@ -33,7 +41,7 @@ gulp.task('build-example', function() {
   var config = require('./example/webpack.config.js');
   return gulp.src('example/app.jsx')
     .pipe(webpackStream(config, webpack))
-    .on('error', gutil.log)
+    .on('error', logError)
     .pipe(gulp.dest('example'))
 });
 
@@ -41,7 +49,7 @@ gulp.task('build-src', function() {
   var config = require('./src/webpack.config.js');
   return gulp.src('src/index.es6')
     .pipe(webpackStream(config, webpack))
-    .on('error', gutil.log)
+    .on('error', logError)
     .pipe(gulp.dest('./'))
 });
 
