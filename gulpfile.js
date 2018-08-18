@@ -34,7 +34,7 @@ gulp.task('build-sass', function() {
 });
 
 gulp.task('watch-sass', function() {
-  gulp.watch(['src/sass/*.scss', 'src/sass/**/*.scss']);
+  gulp.watch(['src/sass/*.scss', 'src/sass/**/*.scss'], ['build-sass']);
 });
 
 gulp.task('build-example', function() {

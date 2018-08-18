@@ -1,11 +1,7 @@
-@import "compass";
-
 .rmMenu {
   background-color: #f0f0f0;
-
-  @include box-shadow(2px 2px 7px rgba(black, 0.4));
-  @include border-radius(6px);
-
+  box-shadow: 2px 2px 7px rgba(black, 0.4);
+  border-radius: 6px;
   padding: 5px 0;
   font-size: 14px;
 }
@@ -17,8 +13,10 @@
 }
 
 .rmMenuItem {
-  @include user-select(none);
-
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
   cursor: default;
   padding: 0 15px;
 
