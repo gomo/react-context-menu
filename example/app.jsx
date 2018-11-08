@@ -7,7 +7,8 @@ window.onload = () => {
           name: context => 'menu1',
           onClick: context => {
             console.log(context);
-          }
+          },
+          className: 'menu-menu1'
         },
         {
           name: context => 'menu2',

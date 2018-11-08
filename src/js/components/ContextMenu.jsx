@@ -84,6 +84,7 @@ export default class ContextMenu extends React.Component
                   onClick={item.onClick}
                   menu={this}
                   enable={item.enable ? item.enable(this.state.context) : true}
+                  className={item.className}
                 />
               )
             }
@@ -99,7 +100,8 @@ ContextMenu.propTypes = {
     name: PropTypes.func.isRequired,
     onClick: PropTypes.func,
     show: PropTypes.func,
-    enable: PropTypes.func
+    enable: PropTypes.func,
+    className: PropTypes.string
   })).isRequired,
   zIndex: PropTypes.number
 }

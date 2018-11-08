@@ -32,7 +32,7 @@ export default class ContextMenuItem extends React.Component
   render(){
     return (
       <li
-        className={classNames("rmMenuItem", {rmMouseOver: this.state.mouseOver, rmDisabled: !this.props.enable, rmSeparator: this.props.name == '-'})}
+        className={classNames("rmMenuItem", {rmMouseOver: this.state.mouseOver, rmDisabled: !this.props.enable, rmSeparator: this.props.name == '-'}, this.props.className)}
         onMouseOver={e => this.onMouseOver(e)}
         onMouseOut={e => this.onMouseOut(e)}
         onClick={e => this.onClick(e)}
