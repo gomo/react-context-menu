@@ -30,14 +30,16 @@ export default class ContextMenuItem extends React.Component
   }
 
   render(){
+    const dangerousHtml = React.isValidElement(this.props.name) ? null : {__html: this.props.name == '-' ? null : this.props.name}
     return (
       <li
         className={classNames("rmMenuItem", {rmMouseOver: this.state.mouseOver, rmDisabled: !this.props.enable, rmSeparator: this.props.name == '-'}, this.props.className)}
         onMouseOver={e => this.onMouseOver(e)}
         onMouseOut={e => this.onMouseOut(e)}
         onClick={e => this.onClick(e)}
-        dangerouslySetInnerHTML={{__html: this.props.name == '-' ? null : this.props.name}}
+        dangerouslySetInnerHTML={dangerousHtml}
       >
+        {React.isValidElement(this.props.name) ? this.props.name : null}
       </li>
     );
   }

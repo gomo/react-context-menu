@@ -26,6 +26,13 @@ window.onload = () => {
             console.log(context);
           },
           enable: context => true
+        },
+        {
+          name: context => <span style={{color: 'red'}}>react dom</span>,
+          onClick: context => {
+            console.log(context);
+          },
+          enable: context => true
         }
       ]}
     />,
