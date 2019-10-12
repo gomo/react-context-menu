@@ -1,6 +1,6 @@
 {
   "name": "@gomo/react-context-menu",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "the react component handling context menu with right click.",
   "main": "index.es6",
   "scripts": {
